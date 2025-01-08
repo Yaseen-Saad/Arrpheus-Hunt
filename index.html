@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-image: url('https://raw.githubusercontent.com/hackclub/high-seas/refs/heads/main/public/background.svg');
+      background-size: cover;
+      background-position: center;
+      font-family: "Pixel", sans-serif;
+      color: white;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #main-menu {
+      text-align: center;
+      background-color: #d0b2db8c;
+      border-radius: 50px;
+      padding: 20px;
+    }
+
+    button {
+      background-color: #d236e2;
+      color: white;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin: 5px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ba58c5;
+    }
+
+    #game-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #game-board {
+      display: grid;
+      border: 2px solid black;
+      background-color: transparent;
+      width: auto;
+      height: auto;
+    }
+
+
+    .tile {
+      width: 40px;
+      height: 40px;
+      background-image: url('./sand.png');
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .Arrpheus {
+      background-image: url('./Arrpheus.png');
+      background-size: cover, contain;
+      background-position: center;
+    }
+
+    .tile.mine {
+      background-image: url('./Hakkun.png');
+      background-size: cover, contain;
+      background-position: center;
+    }
+
+
+    #message-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10;
+    }
+
+    #message-overlay button {
+      background-color: #8B4513;
+      color: white;
+      border: 2px solid black;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-family: "Pixel", sans-serif;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    #message-overlay button:hover {
+      background-color: #A0522D;
+    }
+
+
+    .hidden {
+      display: none !important;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main-menu">
+    <h1 class="pixel-font">Arrpheus Hunt</h1>
+    <p class="description">Arrpheus awaits beneath the sand,<br>But avoid the clickety Hukkun!<br>Can you find all the Arrpheus while staying alive?</p>
+    <div id="options">
+      <button class="option" data-size="12">Start Game</button>
+    </div>
+  </div>
+  <div id="game-container" class="hidden">
+    <div id="game-board"></div>
+    <div id="message-overlay" class="hidden">
+      <h1 id="message-text" class="pixel-font"></h1>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
